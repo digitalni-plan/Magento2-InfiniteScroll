@@ -91,6 +91,11 @@ define([
                 window.ias.on('rendered', function(items){
                     SgyIAS._log({eventName: 'render', items: items});
                     $('body').trigger('contentUpdated');
+                    
+                    // Ajaxed add to cart did not work without bellow.
+                    // Above contentUpdated did nothing.
+                    // Not sure if this is right approach (eg. only dynamic content in products?
+                    $(items).find("form[data-role='tocart-form']").mage('catalogAddToCart');
                 });
                 window.ias.on('noneLeft', function(){
                     SgyIAS._log({eventName: 'noneLeft'});
