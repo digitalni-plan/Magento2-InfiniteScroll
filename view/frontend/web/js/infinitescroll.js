@@ -96,6 +96,7 @@ define([
                     // Above contentUpdated did nothing.
                     // Not sure if this is right approach (eg. only dynamic content in products?
                     $(items).find("form[data-role='tocart-form']").mage('catalogAddToCart');
+                    $(items).formKey();
                 });
                 window.ias.on('noneLeft', function(){
                     SgyIAS._log({eventName: 'noneLeft'});
